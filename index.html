@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>GreenSkin | Beleza Natural, de Verdade</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Poppins:wght@600;700&display=swap"
+                rel="stylesheet">
+
+        <style>
+                :root {
+                        --cor-principal: #2E7D32;
+                        --cor-secundaria: #A7C957;
+                        --cor-destaque: #F7E9D7;
+                        --cor-fundo-claro: #F9FBF8;
+                        --cor-texto: #2C3E50;
+                        --cor-branca: #FFFFFF;
+                        --fonte-titulo: 'Poppins', sans-serif;
+                        --fonte-texto: 'Montserrat', sans-serif;
+                }
+
+                * {
+                        margin: 0;
+                        padding: 0;
+                        box-sizing: border-box;
+                }
+
+                html {
+                        scroll-behavior: smooth;
+                }
+
+                body {
+                        font-family: var(--fonte-texto);
+                        color: var(--cor-texto);
+                        background-color: var(--cor-fundo-claro);
+                        line-height: 1.6;
+                }
+
+                h1,
+                h2,
+                h3,
+                h4 {
+                        font-family: var(--fonte-titulo);
+                        color: var(--cor-principal);
+                }
+
+                a {
+                        text-decoration: none;
+                        color: inherit;
+                }
+
+                button {
+                        font-family: inherit;
+                }
+
+                /* ================= CABEÇALHO ================= */
+
+                header {
+                        background-color: var(--cor-branca);
+                        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+                        position: sticky;
+                        top: 0;
+                        z-index: 1000;
+                }
+
+                .nav-container {
+                        max-width: 1200px;
+                        margin: 0 auto;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        padding: 1rem 2rem;
+                }
+
+                .logo {
+                        font-family: var(--fonte-titulo);
+                        font-size: 1.8rem;
+                        color: var(--cor-principal);
+                        display: flex;
+                        align-items: center;
+                        gap: 8px;
+                }
+
+                .nav-menu {
+                        display: flex;
+                        list-style: none;
+                        gap: 2rem;
+                }
+
+                .nav-menu a {
+                        font-weight: 500;
+                        transition: color 0.3s;
+                }
+
+                .nav-menu a:hover {
+                        color: var(--cor-principal);
+                }
+
+                .nav-actions {
+                        display: flex;
+                        align-items: center;
+                        gap: 1.5rem;
+                }
+
+                .cart-icon {
+                        position: relative;
+                        cursor: pointer;
+                        font-size: 1.2rem;
+                }
+
+                .cart-count {
+                        position: absolute;
+                        top: -8px;
+                        right: -10px;
+                        background-color: var(--cor-principal);
+                        color: var(--cor-branca);
+                        font-size: 0.75rem;
+                        border-radius: 50%;
+                        padding: 2px 6px;
+                }
+
+                /* ================= HERO ================= */
+
+                .hero {
+                        background:
+                                linear-gradient(rgba(247, 233, 215, 0.82), rgba(247, 233, 215, 0.82)),
+                                url("https://images.unsplash.com/photo-1556228578-8c89e6adf883?auto=format&fit=crop&w=1800&q=85");
+                        background-size: cover;
+                        background-position: center;
+                        padding: 6rem 2rem;
+                        text-align: center;
+                }
+
+                .hero-content {
+                        max-width: 800px;
+                        margin: 0 auto;
+                }
+
+                .hero h1 {
+                        font-size: 2.8rem;
+                        margin-bottom: 1rem;
+                }
+
+                .hero p {
+                        font-size: 1.1rem;
+                        margin-bottom: 2rem;
+                }
+
+                .btn-primary {
+                        background-color: var(--cor-principal);
+                        color: var(--cor-branca);
+                        padding: 0.8rem 2rem;
+                        border-radius: 30px;
+                        font-weight: 600;
+                        border: none;
+                        cursor: pointer;
+                        transition: background 0.3s, transform 0.2s;
+                        display: inline-block;
+                }
+
+                .btn-primary:hover {
+                        background-color: #236327;
+                        transform: translateY(-2px);
+                }
+
+                /* ================= DIFERENCIAIS ================= */
+
+                .diferenciais {
+                        display: flex;
+                        justify-content: center;
+                        gap: 2rem;
+                        padding: 2rem;
+                        background-color: var(--cor-branca);
+                        flex-wrap: wrap;
+                        text-align: center;
+                }
+
+                .diferencial-item {
+                        flex: 1;
+                        min-width: 200px;
+                        max-width: 300px;
+                        padding: 1rem;
+                }
+
+                .diferencial-item h4 {
+                        margin-bottom: 0.5rem;
+                }
+
+                /* ================= PRODUTOS ================= */
+
+                .loja-section {
+                        max-width: 1200px;
+                        margin: 4rem auto;
+                        padding: 0 2rem;
+                }
+
+                .section-title {
+                        text-align: center;
+                        font-size: 2rem;
+                        margin-bottom: 2rem;
+                }
+
+                .grid-produtos {
+                        display: grid;
+                        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                        gap: 2rem;
+                }
+
+                .card-produto {
+                        background-color: var(--cor-branca);
+                        border-radius: 12px;
+                        overflow: hidden;
+                        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+                        transition: transform 0.3s, box-shadow 0.3s;
+                        display: flex;
+                        flex-direction: column;
+                }
+
+                .card-produto:hover {
+                        transform: translateY(-5px);
+                        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.10);
+                }
+
+                .card-img {
+                        width: 100%;
+                        height: 280px;
+                        object-fit: cover;
+                        background-color: #EEE;
+                }
+
+                .card-body {
+                        padding: 1.5rem;
+                        display: flex;
+                        flex-direction: column;
+                        flex-grow: 1;
+                }
+
+                .card-body h3 {
+                        font-size: 1.2rem;
+                        margin-bottom: 0.5rem;
+                }
+
+                .card-body p {
+                        font-size: 0.9rem;
+                        color: #666;
+                        margin-bottom: 1rem;
+                        flex-grow: 1;
+                }
+
+                .card-preco {
+                        font-size: 1.3rem;
+                        font-weight: 700;
+                        color: var(--cor-principal);
+                        margin-bottom: 1rem;
+                }
+
+                /* ================= PRODUTO DESTAQUE ================= */
+
+                .produto-destaque {
+                        background-color: var(--cor-branca);
+                        max-width: 1200px;
+                        margin: 4rem auto;
+                        padding: 2rem;
+                        border-radius: 12px;
+                        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+                        display: grid;
+                        grid-template-columns: 1fr 1fr;
+                        gap: 2rem;
+                }
+
+                .galeria-produto {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 1rem;
+                }
+
+                .img-principal {
+                        width: 100%;
+                        border-radius: 8px;
+                        height: 450px;
+                        object-fit: cover;
+                }
+
+                .miniaturas {
+                        display: flex;
+                        gap: 10px;
+                }
+
+                .miniatura {
+                        width: 80px;
+                        height: 80px;
+                        border-radius: 6px;
+                        cursor: pointer;
+                        object-fit: cover;
+                        opacity: 0.6;
+                        transition: opacity 0.3s, transform 0.2s;
+                }
+
+                .miniatura.ativa,
+                .miniatura:hover {
+                        opacity: 1;
+                        border: 2px solid var(--cor-principal);
+                        transform: scale(1.03);
+                }
+
+                .accordion {
+                        margin-top: 1.5rem;
+                        border-top: 1px solid #EEE;
+                }
+
+                .accordion-item {
+                        border-bottom: 1px solid #EEE;
+                }
+
+                .accordion-header {
+                        padding: 1rem 0;
+                        cursor: pointer;
+                        font-weight: 600;
+                        display: flex;
+                        justify-content: space-between;
+                }
+
+                .accordion-content {
+                        display: none;
+                        padding-bottom: 1rem;
+                        font-size: 0.9rem;
+                        color: #555;
+                }
+
+                /* ================= LINKTREE ================= */
+
+                .linktree-section {
+                        background-color: var(--cor-destaque);
+                        padding: 3rem 1rem;
+                        text-align: center;
+                }
+
+                .linktree-container {
+                        max-width: 480px;
+                        margin: 0 auto;
+                }
+
+                .linktree-links {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 1rem;
+                        margin-top: 1.5rem;
+                }
+
+                .link-btn {
+                        background-color: var(--cor-principal);
+                        color: var(--cor-branca);
+                        padding: 1rem;
+                        border-radius: 50px;
+                        font-weight: 600;
+                        transition: transform 0.2s, background 0.3s;
+                }
+
+                .link-btn:hover {
+                        background-color: #236327;
+                        transform: scale(1.02);
+                }
+
+                /* ================= DEPOIMENTO ================= */
+
+                .social-section {
+                        max-width: 1200px;
+                        margin: 4rem auto;
+                        padding: 0 2rem;
+                        text-align: center;
+                }
+
+                .depoimento-card {
+                        background-color: var(--cor-destaque);
+                        padding: 2rem;
+                        border-radius: 12px;
+                        max-width: 600px;
+                        margin: 2rem auto;
+                        font-style: italic;
+                }
+
+                /* ================= RODAPÉ ================= */
+
+                footer {
+                        background-color: var(--cor-principal);
+                        color: var(--cor-branca);
+                        padding: 3rem 2rem 1rem;
+                }
+
+                .footer-container {
+                        max-width: 1200px;
+                        margin: 0 auto;
+                        display: grid;
+                        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                        gap: 2rem;
+                        margin-bottom: 2rem;
+                }
+
+                .footer-col h4 {
+                        color: var(--cor-secundaria);
+                        margin-bottom: 1rem;
+                }
+
+                .footer-col ul {
+                        list-style: none;
+                }
+
+                .footer-col ul li {
+                        margin-bottom: 0.5rem;
+                }
+
+                .footer-bottom {
+                        text-align: center;
+                        padding-top: 2rem;
+                        border-top: 1px solid rgba(255, 255, 255, 0.1);
+                        font-size: 0.85rem;
+                }
+
+                /* ================= RESPONSIVIDADE ================= */
+
+                @media (max-width: 768px) {
+
+                        .nav-menu {
+                                display: none;
+                        }
+
+                        .produto-destaque {
+                                grid-template-columns: 1fr;
+                                margin: 2rem 1rem;
+                        }
+
+                        .hero {
+                                padding: 4rem 1.5rem;
+                        }
+
+                        .hero h1 {
+                                font-size: 1.9rem;
+                        }
+
+                        .hero p {
+                                font-size: 1rem;
+                        }
+
+                        .img-principal {
+                                height: 350px;
+                        }
+
+                        .loja-section {
+                                padding: 0 1rem;
+                        }
+                }
+        </style>
+</head>
+
+<body>
+
+        <!-- ================= CABEÇALHO ================= -->
+
+        <header>
+                <div class="nav-container">
+
+                        <div class="logo">
+                                🌿 GreenSkin
+                        </div>
+
+                        <ul class="nav-menu">
+                                <li><a href="#home">Início</a></li>
+                                <li><a href="#produtos">Produtos</a></li>
+                                <li><a href="#sobre">Sobre</a></li>
+                                <li><a href="#links">Links</a></li>
+                        </ul>
+
+                        <div class="nav-actions">
+                                <div class="cart-icon" onclick="abrirCarrinho()">
+                                        🛒
+                                        <span class="cart-count" id="cartCount">0</span>
+                                </div>
+                        </div>
+
+                </div>
+        </header>
+
+
+        <!-- ================= HERO ================= -->
+
+        <section id="home" class="hero">
+
+                <div class="hero-content">
+
+                        <h1>Beleza natural, de verdade</h1>
+
+                        <p>
+                                Cuide da sua pele com o poder da natureza.
+                                Produtos veganos, cruelty-free e sem parabenos.
+                        </p>
+
+                        <a href="#produtos" class="btn-primary">
+                                Comprar Agora
+                        </a>
+
+                </div>
+
+        </section>
+
+
+        <!-- ================= DIFERENCIAIS ================= -->
+
+        <section class="diferenciais">
+
+                <div class="diferencial-item">
+                        <h4>🌱 Produtos Veganos</h4>
+                        <p>Livre de ingredientes de origem animal.</p>
+                </div>
+
+                <div class="diferencial-item">
+                        <h4>🐰 Cruelty Free</h4>
+                        <p>Não realizamos testes em animais.</p>
+                </div>
+
+                <div class="diferencial-item">
+                        <h4>✨ Sem Parabenos</h4>
+                        <p>Fórmulas seguras e puras para sua pele.</p>
+                </div>
+
+        </section>
+
+
+        <!-- ================= CATÁLOGO ================= -->
+
+        <section id="produtos" class="loja-section">
+
+                <h2 class="section-title">
+                        Nossos Produtos
+                </h2>
+
+                <div class="grid-produtos">
+
+
+                        <!-- PRODUTO 1 -->
+
+                        <div class="card-produto">
+
+                                <img src="https://images.unsplash.com/photo-1556229010-6c3f2c9ca5f8?auto=format&fit=crop&w=800&q=85"
+                                        alt="Creme Hidratante Facial" class="card-img">
+
+                                <div class="card-body">
+
+                                        <h3>
+                                                Creme Hidratante Facial GreenSkin (50g)
+                                        </h3>
+
+                                        <p>
+                                                Cuidado diário em uma apresentação simples e acolhedora.
+                                                Sensação de hidratação profunda.
+                                        </p>
+
+                                        <div class="card-preco">
+                                                R$ 89,90
+                                        </div>
+
+                                        <button class="btn-primary"
+                                                onclick="adicionarAoCarrinho('Creme Hidratante Facial', 89.90)">
+                                                Adicionar ao Carrinho
+                                        </button>
+
+                                </div>
+
+                        </div>
+
+
+                        <!-- PRODUTO 2 -->
+
+                        <div class="card-produto">
+
+                                <img src="https://images.unsplash.com/photo-1612817288484-6f916006741a?auto=format&fit=crop&w=800&q=85"
+                                        alt="Sérum Facial" class="card-img">
+
+                                <div class="card-body">
+
+                                        <h3>
+                                                Sérum Facial GreenSkin
+                                        </h3>
+
+                                        <p>
+                                                Produto complementar para potencializar
+                                                a sua rotina diária de cuidados com a pele.
+                                        </p>
+
+                                        <div class="card-preco">
+                                                R$ 99,90
+                                        </div>
+
+                                        <button class="btn-primary"
+                                                onclick="adicionarAoCarrinho('Sérum Facial', 99.90)">
+                                                Adicionar ao Carrinho
+                                        </button>
+
+                                </div>
+
+                        </div>
+
+
+                        <!-- PRODUTO 3 -->
+
+                        <div class="card-produto">
+
+                                <img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=800&q=85"
+                                        alt="Kit Skincare Completo" class="card-img">
+
+                                <div class="card-body">
+
+                                        <h3>
+                                                Kit Skincare Completo
+                                        </h3>
+
+                                        <p>
+                                                Conjunto ilustrativo com os produtos essenciais
+                                                para a sua pele renovada.
+                                        </p>
+
+                                        <div class="card-preco">
+                                                R$ 179,90
+                                        </div>
+
+                                        <button class="btn-primary"
+                                                onclick="adicionarAoCarrinho('Kit Skincare Completo', 179.90)">
+                                                Adicionar ao Carrinho
+                                        </button>
+
+                                </div>
+
+                        </div>
+
+                </div>
+
+        </section>
+
+
+        <!-- ================= PRODUTO DESTAQUE ================= -->
+
+        <section class="produto-destaque">
+
+                <div class="galeria-produto">
+
+                        <img id="imgPrincipal"
+                                src="https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?auto=format&fit=crop&w=1000&q=85"
+                                alt="Creme hidratante GreenSkin" class="img-principal">
+
+                        <div class="miniaturas">
+
+                                <img src="https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?auto=format&fit=crop&w=500&q=85"
+                                        alt="Creme hidratante" class="miniatura ativa"
+                                        onclick="trocarImagem(this.src, this)">
+
+                                <img src="https://images.unsplash.com/photo-1556229010-6c3f2c9ca5f8?auto=format&fit=crop&w=500&q=85"
+                                        alt="Produto skincare" class="miniatura" onclick="trocarImagem(this.src, this)">
+
+                                <img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=500&q=85"
+                                        alt="Kit de skincare" class="miniatura" onclick="trocarImagem(this.src, this)">
+
+                        </div>
+
+                </div>
+
+
+                <div>
+
+                        <h2>
+                                Creme Hidratante Facial GreenSkin
+                        </h2>
+
+                        <p style="margin: 1rem 0;">
+                                Voltado para quem busca incluir um cuidado simples
+                                na rotina diária. Proporciona praticidade, sensação
+                                de hidratação e uma experiência inspirada na natureza.
+                        </p>
+
+                        <div class="card-preco">
+                                R$ 89,90
+                        </div>
+
+                        <button class="btn-primary"
+                                onclick="adicionarAoCarrinho('Creme Hidratante Facial (50g)', 89.90)"
+                                style="width: 100%; text-align: center;">
+                                Comprar Agora
+                        </button>
+
+
+                        <!-- ACORDEÃO -->
+
+                        <div class="accordion">
+
+                                <div class="accordion-item">
+
+                                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                                                <span>Informações Técnicas</span>
+                                                <span>+</span>
+                                        </div>
+
+                                        <div class="accordion-content">
+                                                Embalagem de 50 g com acabamento minimalista
+                                                e reciclável.
+                                        </div>
+
+                                </div>
+
+
+                                <div class="accordion-item">
+
+                                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                                                <span>Diferenciais e Benefícios</span>
+                                                <span>+</span>
+                                        </div>
+
+                                        <div class="accordion-content">
+                                                Totalmente Vegano, Cruelty-Free e Isento
+                                                de Parabenos.
+                                        </div>
+
+                                </div>
+
+
+                                <div class="accordion-item">
+
+                                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                                                <span>Modo de Uso</span>
+                                                <span>+</span>
+                                        </div>
+
+                                        <div class="accordion-content">
+                                                Aplique uma pequena quantidade sobre o rosto
+                                                limpo e massageie suavemente até a absorção total.
+                                        </div>
+
+                                </div>
+
+                        </div>
+
+                </div>
+
+        </section>
+
+
+        <!-- ================= DEPOIMENTOS ================= -->
+
+        <section class="social-section">
+
+                <h2>
+                        O que dizem sobre nós
+                </h2>
+
+                <div class="depoimento-card">
+
+                        <p>
+                                "Amei! Minha pele ficou muito mais hidratada e macia."
+                        </p>
+
+                        <br>
+
+                        <small>
+                                <strong>— Juliana S.</strong>
+                                (@greenskin.brasil)
+                        </small>
+
+                </div>
+
+        </section>
+
+
+        <!-- ================= LINKS ================= -->
+
+        <section id="links" class="linktree-section">
+
+                <div class="linktree-container">
+
+                        <div class="logo" style="justify-content: center; margin-bottom: 0.5rem;">
+                                🌿 GreenSkin
+                        </div>
+
+                        <p>
+                                <strong>Beleza natural, de verdade.</strong>
+                                <br>
+                                Cuide da sua pele com o poder da natureza.
+                        </p>
+
+
+                        <div class="linktree-links">
+
+                                <a href="#produtos" class="link-btn">
+                                        🛍️ Loja Online — Catálogo
+                                </a>
+
+                                <a href="https://instagram.com" target="_blank" class="link-btn">
+                                        📸 Instagram — @greenskin.brasil
+                                </a>
+
+                                <a href="https://wa.me/5500000000000" target="_blank" class="link-btn">
+                                        💬 WhatsApp / Atendimento
+                                </a>
+
+                                <a href="#produtos" class="link-btn">
+                                        📦 Catálogo de Produtos
+                                </a>
+
+                                <a href="#footer" class="link-btn">
+                                        ✉️ Fale Conosco
+                                </a>
+
+                        </div>
+
+                </div>
+
+        </section>
+
+
+        <!-- ================= RODAPÉ ================= -->
+
+        <footer id="footer">
+
+                <div class="footer-container">
+
+                        <div class="footer-col">
+
+                                <h4>GreenSkin</h4>
+
+                                <p>
+                                        Beleza natural, de verdade.
+                                        Cuidado diário com uma experiência
+                                        simples e acolhedora.
+                                </p>
+
+                        </div>
+
+
+                        <div class="footer-col">
+
+                                <h4>Atendimento</h4>
+
+                                <ul>
+
+                                        <li>
+                                                Contato via WhatsApp
+                                        </li>
+
+                                        <li>
+                                                Segunda a Sexta, 9h às 18h
+                                        </li>
+
+                                        <li>
+                                                suporte@greenskin.com.br
+                                        </li>
+
+                                </ul>
+
+                        </div>
+
+
+                        <div class="footer-col">
+
+                                <h4>Formas de Pagamento</h4>
+
+                                <p>
+                                        💳 Cartões de Crédito / Pix
+                                </p>
+
+                                <br>
+
+                                <h4>
+                                        Segurança
+                                </h4>
+
+                                <p>
+                                        🔒 Ambiente 100% Seguro
+                                </p>
+
+                        </div>
+
+                </div>
+
+
+                <div class="footer-bottom">
+
+                        <p>
+                                GreenSkin © 2026 — Protótipo Conceitual /
+                                Projeto de Computação Gráfica.
+                                Todos os direitos reservados.
+                        </p>
+
+                </div>
+
+        </footer>
+
+
+        <!-- ================= JAVASCRIPT ================= -->
+
+        <script>
+
+                // ================= CARRINHO =================
+
+                let carrinhoCount = 0;
+
+                function adicionarAoCarrinho(nomeProduto, preco) {
+
+                        carrinhoCount++;
+
+                        document.getElementById("cartCount").innerText = carrinhoCount;
+
+                        alert(
+                                `${nomeProduto} foi adicionado ao seu carrinho!`
+                        );
+                }
+
+
+                function abrirCarrinho() {
+
+                        alert(
+                                `Você tem ${carrinhoCount} item(ns) no seu carrinho.`
+                        );
+                }
+
+
+                // ================= GALERIA =================
+
+                function trocarImagem(src, elemento) {
+
+                        document.getElementById("imgPrincipal").src = src;
+
+                        let miniaturas =
+                                document.querySelectorAll(".miniatura");
+
+                        miniaturas.forEach(function (img) {
+
+                                img.classList.remove("ativa");
+
+                        });
+
+                        elemento.classList.add("ativa");
+                }
+
+
+                // ================= ACORDEÃO =================
+
+                function toggleAccordion(header) {
+
+                        const content =
+                                header.nextElementSibling;
+
+                        const isOpen =
+                                content.style.display === "block";
+
+
+                        document
+                                .querySelectorAll(".accordion-content")
+                                .forEach(function (item) {
+
+                                        item.style.display = "none";
+
+                                });
+
+
+                        document
+                                .querySelectorAll(
+                                        ".accordion-header span:last-child"
+                                )
+                                .forEach(function (span) {
+
+                                        span.innerText = "+";
+
+                                });
+
+
+                        if (!isOpen) {
+
+                                content.style.display = "block";
+
+                                header
+                                        .querySelector("span:last-child")
+                                        .innerText = "-";
+                        }
+
+                }
+
+        </script>
+
+</body>
+
+</html>
